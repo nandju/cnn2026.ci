@@ -9,9 +9,10 @@ import { CTAButton } from "./CTAButton";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
+  const [desktopActive, setDesktopActive] = useState<string | null>(null);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-charcoal/80 backdrop-blur-xl">
+    <header onMouseLeave={() => setDesktopActive(null)} className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-charcoal/80 backdrop-blur-xl">
       <div className="container-cnn flex h-20 items-center justify-between gap-6">
         <Link href="/" className="font-[var(--font-space)] text-2xl font-black tracking-tight">
           CNN <span className="text-orange">2026</span>
@@ -19,18 +20,22 @@ export function Header() {
         <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) =>
             item.children ? (
-              <div key={item.label} className="group relative">
+              <div key={item.label} onMouseEnter={() => setDesktopActive(item.label)} className="relative">
                 <button className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10 hover:text-neon">
                   {item.label}
-                  <ChevronDown size={14} />
+                  <ChevronDown className={desktopActive === item.label ? "rotate-180 opacity-100 transition" : "opacity-0 transition"} size={14} />
                 </button>
-                <div className="invisible absolute left-0 top-full w-72 translate-y-3 rounded-2xl border border-white/10 bg-panel p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:translate-y-2 group-hover:opacity-100">
-                  {item.children.map((child) => (
-                    <Link key={child.href} href={child.href} className="block rounded-xl px-4 py-3 text-sm text-muted transition hover:bg-white/10 hover:text-neon">
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
+                {desktopActive === item.label ? (
+                  <div className="absolute left-0 top-full w-72 pt-3">
+                    <div className="rounded-2xl border border-white/10 bg-panel p-2 shadow-2xl">
+                      {item.children.map((child) => (
+                        <Link key={child.href} href={child.href} className="block rounded-xl px-4 py-3 text-sm text-muted transition hover:bg-white/10 hover:text-neon">
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
               </div>
             ) : (
               <Link key={item.href} href={item.href} className="rounded-full px-3 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10 hover:text-neon">
