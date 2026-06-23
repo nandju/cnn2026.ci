@@ -11,12 +11,17 @@ const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
+  icons: {
+    icon: "/images/Logo_noir.png",
+    shortcut: "/images/Logo_noir.png",
+    apple: "/images/Logo_noir.png",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className={`${inter.variable} ${space.variable}`}>
-      <body className="font-sans antialiased">
+      <body className="bg-white font-sans text-ink antialiased">
         <Header />
         {children}
         <Footer />

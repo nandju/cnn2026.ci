@@ -9,13 +9,13 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <main className="bg-charcoal pt-32">
+    <main className="bg-white pt-32">
       <section className="container-cnn py-20">
         <SectionHeader eyebrow="FAQ" title="Questions fréquentes." text="Les réponses essentielles pour comprendre l’expérience CNN 2026." />
         <div className="mt-12 grid gap-4">
           {faqs.map(([question, answer]) => (
-            <details key={question} className="rounded-2xl border border-white/10 bg-panel p-6">
-              <summary className="cursor-pointer font-[var(--font-space)] text-xl font-bold">{question}</summary>
+            <details key={question} className="rounded-2xl border border-line bg-white p-6 shadow-soft">
+              <summary className="cursor-pointer font-[var(--font-space)] text-xl font-bold text-ink">{question}</summary>
               <p className="mt-4 leading-7 text-muted">{answer}</p>
             </details>
           ))}

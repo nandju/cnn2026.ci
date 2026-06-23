@@ -14,7 +14,7 @@ export function CTAButton({ href, label }: { href?: string; label?: string }) {
       href={target}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange to-neon px-5 py-3 text-sm font-bold text-charcoal shadow-glow transition hover:scale-[1.02] hover:shadow-greenGlow"
+      className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange to-neon px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:scale-[1.02] hover:shadow-greenGlow"
     >
       {text}
       <ArrowRight size={16} />

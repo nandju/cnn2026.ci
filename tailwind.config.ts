@@ -5,20 +5,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        ink: "#0B0D10",
         charcoal: "#0B0D10",
         graphite: "#111317",
         panel: "#161A20",
+        paper: "#FFFFFF",
+        cloud: "#F5F6F8",
+        line: "#E6E8EC",
         orange: "#FF6A00",
-        neon: "#35FF7A",
+        neon: "#16B364",
         mist: "#F5F7FA",
-        muted: "#94A3B8",
+        muted: "#5B6472",
       },
       boxShadow: {
-        glow: "0 0 40px rgba(255, 106, 0, 0.24)",
-        greenGlow: "0 0 36px rgba(53, 255, 122, 0.18)",
+        glow: "0 18px 50px rgba(255, 106, 0, 0.18)",
+        greenGlow: "0 18px 50px rgba(22, 179, 100, 0.16)",
+        soft: "0 10px 40px rgba(11, 13, 16, 0.08)",
       },
       backgroundImage: {
-        hero: "radial-gradient(circle at 20% 20%, rgba(255,106,0,.22), transparent 30%), radial-gradient(circle at 80% 10%, rgba(53,255,122,.12), transparent 28%), linear-gradient(135deg, #0B0D10 0%, #111317 55%, #161A20 100%)",
+        hero: "radial-gradient(circle at 18% 12%, rgba(255,106,0,.10), transparent 34%), radial-gradient(circle at 82% 8%, rgba(22,179,100,.08), transparent 30%), linear-gradient(135deg, #FFFFFF 0%, #F5F6F8 60%, #EEF0F3 100%)",
       },
     },
   },

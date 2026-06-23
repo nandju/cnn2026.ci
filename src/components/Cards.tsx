@@ -1,19 +1,25 @@
-import { keyNumbers, partners, pillars } from "@/data/site";
+import Image from "next/image";
+import { keyNumbers, pillars, sponsors } from "@/data/site";
 import { SectionHeader } from "./SectionHeader";
 
 export function Pillars() {
   return (
-    <section className="bg-graphite py-24">
+    <section className="bg-white py-24">
       <div className="container-cnn">
         <SectionHeader eyebrow="Trois piliers" title="Un camp pensé pour transformer l’influence en infrastructure." text="Chaque pilier relie création, technologie, stratégie et responsabilité pour produire des livrables concrets." />
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {pillars.map((pillar, index) => (
-            <article key={pillar.title} className="rounded-[2rem] border border-white/10 bg-panel p-6 transition hover:-translate-y-1 hover:border-orange/50">
-              <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-orange/30 to-neon/20 font-[var(--font-space)] text-2xl font-black text-neon">0{index + 1}</div>
-              <h3 className="font-[var(--font-space)] text-2xl font-bold">{pillar.title}</h3>
-              <p className="mt-4 text-sm leading-6 text-muted">{pillar.text}</p>
-              <div className="mt-6 rounded-2xl border border-white/10 bg-charcoal/70 p-4 text-sm leading-6 text-white/80">
-                <span className="font-bold text-orange">À accomplir : </span>{pillar.outcome}
+            <article key={pillar.title} className="overflow-hidden rounded-[2rem] border border-line bg-white shadow-soft transition hover:-translate-y-1 hover:border-orange/50">
+              <div className="relative h-44 w-full overflow-hidden">
+                <Image src={pillar.image} alt={pillar.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+                <span className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-ink font-[var(--font-space)] text-lg font-black text-white">0{index + 1}</span>
+              </div>
+              <div className="p-6">
+                <h3 className="font-[var(--font-space)] text-2xl font-bold text-ink">{pillar.title}</h3>
+                <p className="mt-4 text-sm leading-6 text-muted">{pillar.text}</p>
+                <div className="mt-6 rounded-2xl border border-line bg-cloud p-4 text-sm leading-6 text-ink/80">
+                  <span className="font-bold text-orange">À accomplir : </span>{pillar.outcome}
+                </div>
               </div>
             </article>
           ))}
@@ -25,11 +31,11 @@ export function Pillars() {
 
 export function PartnersMarquee() {
   return (
-    <section className="overflow-hidden border-y border-white/10 bg-charcoal py-8">
-      <div className="flex min-w-max animate-[marquee_24s_linear_infinite] gap-6 px-6">
-        {[...partners, ...partners].map((partner, index) => (
-          <span key={`${partner}-${index}`} className="rounded-full border border-white/10 bg-white/[.03] px-8 py-4 text-sm font-black uppercase tracking-[.22em] text-white/45 grayscale">
-            {partner}
+    <section className="overflow-hidden border-y border-line bg-cloud py-8">
+      <div className="flex min-w-max animate-[marquee_24s_linear_infinite] items-center gap-6 px-6">
+        {[...sponsors, ...sponsors].map((logo, index) => (
+          <span key={`${logo}-${index}`} className="flex h-20 w-44 items-center justify-center rounded-2xl border border-line bg-white px-8 py-4 shadow-soft">
+            <Image src={logo} alt="Partenaire CNN 2026" width={120} height={48} className="h-10 w-auto object-contain" />
           </span>
         ))}
       </div>
@@ -39,11 +45,11 @@ export function PartnersMarquee() {
 
 export function KeyNumbers() {
   return (
-    <section className="bg-charcoal py-24">
+    <section className="bg-cloud py-24 text-ink">
       <div className="container-cnn grid gap-4 md:grid-cols-4">
         {keyNumbers.map(([number, label]) => (
-          <div key={label} className="rounded-[2rem] border border-white/10 bg-white/[.035] p-7">
-            <p className="font-[var(--font-space)] text-6xl font-black text-neon">{number}</p>
+          <div key={label} className="rounded-[2rem] border border-line bg-white p-7 shadow-soft">
+            <p className="font-[var(--font-space)] text-6xl font-black text-orange">{number}</p>
             <p className="mt-3 text-sm font-bold uppercase tracking-[.18em] text-muted">{label}</p>
           </div>
         ))}

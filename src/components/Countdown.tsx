@@ -21,8 +21,8 @@ export function Countdown() {
   }, []);
 
   return (
-    <section className="bg-charcoal py-8">
-      <div className="container-cnn rounded-[2rem] border border-orange/30 bg-gradient-to-r from-orange/15 via-white/[.04] to-neon/10 p-6 shadow-glow">
+    <section className="bg-white py-10">
+      <div className="container-cnn rounded-[2rem] border border-orange/30 bg-gradient-to-r from-orange/10 via-cloud to-neon/10 p-8 text-ink shadow-soft">
         <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[.22em] text-orange">Clôture de The Draft</p>
@@ -30,8 +30,8 @@ export function Countdown() {
           </div>
           <div className="grid grid-cols-3 gap-3 text-center">
             {Object.entries(remaining).map(([label, value]) => (
-              <div key={label} className="rounded-2xl bg-charcoal/70 px-5 py-4">
-                <p className="font-[var(--font-space)] text-3xl font-black text-mist">{value}</p>
+              <div key={label} className="rounded-2xl border border-line bg-white px-5 py-4 shadow-soft">
+                <p className="font-[var(--font-space)] text-3xl font-black text-ink">{value}</p>
                 <p className="text-xs uppercase tracking-[.18em] text-muted">{label}</p>
               </div>
             ))}

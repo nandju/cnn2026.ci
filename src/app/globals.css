@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  background: #0b0d10;
+  color-scheme: light;
+  background: #ffffff;
 }
 
 * {
@@ -17,13 +17,13 @@ html {
 
 body {
   margin: 0;
-  background: #0b0d10;
-  color: #f5f7fa;
+  background: #ffffff;
+  color: #0b0d10;
 }
 
 ::selection {
-  background: rgba(255, 106, 0, 0.45);
-  color: #ffffff;
+  background: rgba(255, 106, 0, 0.35);
+  color: #0b0d10;
 }
 
 .container-cnn {
