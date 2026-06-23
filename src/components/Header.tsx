@@ -7,6 +7,7 @@ import { useState } from "react";
 import { navItems } from "@/data/navigation";
 import { siteConfig } from "@/data/site";
 import { CTAButton } from "./CTAButton";
+import { AnnouncementBar } from "./countdown/AnnouncementBar";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -15,6 +16,7 @@ export function Header() {
 
   return (
     <header onMouseLeave={() => setDesktopActive(null)} className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/85 backdrop-blur-xl">
+      <AnnouncementBar />
       <div className="container-cnn flex h-20 items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3">
           <Image

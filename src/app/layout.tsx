@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CountdownProvider } from "@/components/countdown/CountdownProvider";
 import { siteConfig } from "@/data/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -22,9 +23,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fr" className={`${inter.variable} ${space.variable}`}>
       <body className="bg-white font-sans text-ink antialiased">
-        <Header />
-        {children}
-        <Footer />
+        <CountdownProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CountdownProvider>
       </body>
     </html>
   );
