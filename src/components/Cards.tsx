@@ -7,18 +7,20 @@ export function Pillars() {
     <section className="bg-white py-24">
       <div className="container-cnn">
         <SectionHeader eyebrow="Trois piliers" title="Un camp pensé pour transformer l’influence en infrastructure." text="Chaque pilier relie création, technologie, stratégie et responsabilité pour produire des livrables concrets." />
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-5 md:grid-cols-3">
           {pillars.map((pillar, index) => (
-            <article key={pillar.title} className="overflow-hidden rounded-[2rem] border border-line bg-white shadow-soft transition hover:-translate-y-1 hover:border-orange/50">
+            <article key={pillar.title} className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-line bg-white shadow-soft transition hover:-translate-y-1 hover:border-orange/50">
               <div className="relative h-44 w-full overflow-hidden">
                 <Image src={pillar.image} alt={pillar.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                 <span className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-ink font-[var(--font-space)] text-lg font-black text-white">0{index + 1}</span>
               </div>
-              <div className="p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-[var(--font-space)] text-2xl font-bold text-ink">{pillar.title}</h3>
                 <p className="mt-4 text-sm leading-6 text-muted">{pillar.text}</p>
-                <div className="mt-6 rounded-2xl border border-line bg-cloud p-4 text-sm leading-6 text-ink/80">
-                  <span className="font-bold text-orange">À accomplir : </span>{pillar.outcome}
+                <div className="mt-auto pt-6">
+                  <div className="rounded-2xl border border-line bg-cloud p-4 text-sm leading-6 text-ink/80">
+                    <span className="font-bold text-orange">À accomplir : </span>{pillar.outcome}
+                  </div>
                 </div>
               </div>
             </article>
